@@ -1,0 +1,3 @@
+#N canvas 15 40 225 52 10;
+#X obj 12 9 clone cuber \$2 \$1;
+#X obj 126 9 inlet;

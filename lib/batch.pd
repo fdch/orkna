@@ -1,0 +1,10 @@
+#N canvas 0 22 450 300 10;
+#X obj 54 128 list prepend send;
+#X obj 54 101 list prepend \$1;
+#X obj 54 73 r \$2-\$1;
+#X obj 54 150 list trim;
+#X obj 54 172 s batch-out;
+#X connect 0 0 3 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 4 0;
