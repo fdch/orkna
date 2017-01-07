@@ -8,11 +8,11 @@
 #X obj 220 54 bng 10 250 50 0 stop stop-set stop -26 4 0 10 -258113
 -1 -1;
 #X obj 131 96 hradio 10 1 0 8 empty empty presets 0 -6 0 10 -262144
--1 -1 3;
+-1 -1 0;
 #X obj 230 72 bng 15 250 50 0 load-samples load-samples-set empty 17
 7 0 10 -262144 -1 -1;
 #X obj 67 72 nbx 2 14 2 100 0 0 presamp-samp empty empty 0 -8 0 10
--262144 -1 -1 6 256;
+-262144 -1 -1 10 256;
 #X msg 97 139 set \$1;
 #X obj 68 92 nbx 5 14 0 7 0 0 prepreset preprese-set empty 0 -8 0 10
 -262144 -1 -1 0 256;
@@ -20,7 +20,7 @@
 #X obj 131 75 hradio 10 1 0 8 empty empty harmonics 0 -6 0 10 -262144
 -1 -1 3;
 #X obj 97 72 nbx 2 14 2 33 0 0 harmonics empty empty 0 -8 0 10 -262144
--1 -1 10 256;
+-1 -1 8 256;
 #X obj 97 6 + 1;
 #X obj 97 28 * 2;
 #X obj 236 50 tglvis main-controls;
@@ -180,16 +180,16 @@ to the [sample-loader] abstraction., f 32;
 #X text 369 293 3 file name;
 #X text 370 307 4 format;
 #X text 370 324 5 path;
+#X obj 30 186 list append ../samples;
 #X msg 30 239 \; netsend-connect bang \; netsend send amount \$1 \$2
 \; pd-synthesis clear \; pd-synthesis obj 10 10 clone -s 1 voice \$1
-\$3 \$4 \$5 \$2 \; pd-synthesis obj 10 50 clone -s 1 batch \$1 rockna
+\$3 \$4 \$5 \$2 \; pd-synthesis obj 10 50 clone -s 1 batch \$1 \$3
 \; \; pd dsp 1 \; samples load;
-#X obj 30 186 list append ../samples;
 #X connect 0 0 1 0;
 #X connect 1 0 4 0;
 #X connect 2 0 1 1;
-#X connect 4 0 11 0;
-#X connect 11 0 10 0;
+#X connect 4 0 10 0;
+#X connect 10 0 11 0;
 #X restore 254 108 pd creator;
 #N canvas 879 103 172 158 printer 0;
 #N canvas 0 22 660 312 ORKNA-WARNING 0;
@@ -370,7 +370,8 @@ many samples...;
 #X obj 215 149 - 1;
 #X msg 257 186 20;
 #X obj 257 208 until;
-#X msg 296 300 - d - - - - - e - - - - - f - - - - - e - - - -;
+#X msg 296 300 - f - - - - - e - - - - - d - - - - - e - - - - - f
+- - - - - e - - - -;
 #X obj 257 230 f;
 #X obj 287 229 + 1;
 #X msg 295 207 0;
@@ -661,7 +662,7 @@ bang \;;
 #X restore 37 10 pd main-controls;
 #X obj 107 78 hsl 128 17 0 127 0 0 mainlevel mainlevel-set mainlevel
 30 8 0 10 -262144 -1 -1 0 1;
-#N canvas 249 616 248 74 stuff 0;
+#N canvas 247 617 248 74 stuff 0;
 #N canvas 250 611 224 202 mixer 0;
 #X obj 20 14 catch~ dacout1;
 #X obj 65 38 catch~ dacout2;
@@ -793,7 +794,7 @@ bang \;;
 #X obj 630 262 s expo-q;
 #X obj 627 240 exp;
 #X obj 626 168 hsl 128 15 0 127 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 10000 1;
 #X obj 620 194 / 127;
 #X obj 620 216 * 5;
 #X obj 693 267 exp;
@@ -1105,8 +1106,8 @@ expo \; vcf-q 6000 \; get-tot-dur bang \; vibrato 4 0.17 \;;
 #X connect 4 0 1 0;
 #X restore 103 52 pd netsend;
 #N canvas 251 612 347 73 synthesis 0;
-#X obj 10 10 clone -s 1 voice 6 your_sample wav ../../samples 10;
-#X obj 10 50 clone -s 1 batch 6 rockna;
+#X obj 10 10 clone -s 1 voice 10 your_sample wav ../samples 8;
+#X obj 10 50 clone -s 1 batch 10 your_sample;
 #X restore 80 32 pd synthesis;
 #X obj 169 52 bng 17 250 50 0 netsend-connect empty empty 17 7 0 10
 -262144 -1 -1;

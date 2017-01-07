@@ -1,6 +1,6 @@
 #N canvas 19 475 226 110 10;
 #X declare -path lib;
-#X declare -lib Gem;
+#X declare -stdlib Gem;
 #N canvas 529 317 446 375 controls 0;
 #X msg 15 48 \; alpha 1 0;
 #X msg 16 7 \; alpha 0 1;
@@ -93,7 +93,7 @@ cam lookZ 0 \;;
 #X obj 106 128 hsl 128 15 0 127 0 0 speed speed-set speed -2 -8 0 10
 -262144 -1 -1 0 1;
 #X obj 105 162 hsl 128 15 0 127 0 0 distance distance-set distance
--2 -8 0 10 -262144 -1 -1 10000 1;
+-2 -8 0 10 -262144 -1 -1 6000 1;
 #X obj 163 145 tgl 15 0 dist-side dist-side-set dist-side 17 7 0 10
 -262144 -1 -1 0 1;
 #X obj 57 306 r distance;
@@ -143,7 +143,7 @@ cam lookZ 0 \;;
 #X coords 0 -1 1 1 300 80 1 100 100;
 #X restore 15 235 pd camera-view;
 #X obj 165 23 vsl 15 50 0 127 0 0 separation separation-set separation
-0 -9 0 10 -262144 -1 -1 77 1;
+0 -9 0 10 -262144 -1 -1 1929 1;
 #X obj 188 26 bng 15 250 50 0 init init-set init 17 7 0 10 -262144
 -1 -1;
 #X msg 224 188 \; sph point 1 5;
@@ -235,8 +235,8 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X obj 214 476 tabwrite times;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array times 16 float 3;
-#A 0 1988 9515 18772 17286 11644 16255 15083 6556 8672 19146 19160
-14406 26273 34145 30141 31391;
+#A 0 9291 16491 9798 11412 14920 14134 15011 20535 23334 17597 10662
+19658 29798 29092 32573 25752;
 #X coords 0 50000 16 0 200 140 1 0 0;
 #X restore 317 283 graph;
 #X obj 197 425 +;
@@ -382,16 +382,18 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X restore 151 67 pd score;
 #X obj 73 44 tgl 8 0 fullscreen-set fullscreen fullscreen-set 10 4
 0 8 -262144 -1 -1 0 1;
-#N canvas 19 614 238 181 stuff 0;
+#N canvas 19 611 227 168 stuff 0;
 #N canvas 249 611 143 129 netreceive 0;
 #X msg 14 34 listen 3001;
 #X obj 14 56 netreceive;
 #X obj 14 80 s from-audio-pd;
 #X obj 14 12 loadbang;
+#X msg 76 11 listen 0;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 3 0 0 0;
-#X restore 15 74 pd netreceive;
+#X connect 4 0 1 0;
+#X restore 15 55 pd netreceive;
 #N canvas 449 166 450 300 gemwin 0;
 #X obj 25 190 gemwin;
 #X obj 25 15 loadbang;
@@ -447,24 +449,10 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X connect 19 0 20 0;
 #X connect 20 0 5 0;
 #X connect 20 1 12 1;
-#X restore 15 53 pd gemwin;
-#N canvas 17 738 173 54 cubers 0;
-#X obj 10 10 clone -s 1 trackube 6 4;
-#X restore 135 55 pd cubers;
-#N canvas 357 385 450 300 sphere 0;
-#X obj 54 86 gemhead -1;
-#X obj 54 129 color 0 0 1;
-#X obj 56 215 sphere 0.1 20;
-#X floatatom 97 192 5 0 0 0 - - -, f 5;
-#X obj 178 120 line;
-#X obj 56 163 translateXYZ 1 0 0;
-#X msg 178 98 -16 \, 4 2000;
-#X connect 0 0 1 0;
-#X connect 1 0 5 0;
-#X connect 3 0 2 1;
-#X connect 4 0 5 3;
-#X connect 6 0 4 0;
-#X restore 138 97 pd sphere;
+#X restore 15 33 pd gemwin;
+#N canvas 17 739 173 54 cubers 0;
+#X obj 10 10 clone -s 1 trackube 10 8;
+#X restore 15 116 pd cubers;
 #N canvas 228 584 198 210 metro 0;
 #X obj 34 104 metro 50;
 #X obj 34 126 f;
@@ -487,7 +475,7 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X connect 5 0 0 0;
 #X connect 6 0 4 0;
 #X connect 7 0 0 1;
-#X restore 15 116 pd metro;
+#X restore 15 96 pd metro;
 #N canvas 20 100 307 247 from-audio-pd 0;
 #X obj 62 69 s init;
 #X obj 13 26 r from-audio-pd;
@@ -508,18 +496,22 @@ trackube \$1 \$2;
 #X connect 7 2 6 0;
 #X connect 7 3 8 0;
 #X connect 7 4 4 0;
-#X restore 15 94 pd from-audio-pd;
-#X obj 136 34 s gemlist;
+#X restore 15 76 pd from-audio-pd;
+#X obj 132 137 s gemlist;
 #N canvas 142 649 101 106 cam 0;
 #X obj 26 19 gemhead;
 #X obj 37 42 r cam;
 #X obj 29 63 camera;
 #X connect 0 0 2 0;
 #X connect 1 0 2 0;
-#X restore 137 77 pd cam;
+#X restore 15 136 pd cam;
+#X obj 132 14 gemhead;
+#N canvas 0 22 205 86 declares 0;
 #X obj 13 6 declare -path lib;
-#X obj 136 12 gemhead;
-#X obj 14 30 declare -lib Gem;
-#X connect 9 0 6 0;
+#X obj 14 30 declare -stdlib Gem;
+#X restore 16 10 pd declares;
+#X text 142 37 if this did not create \, then you dont have Gem working...
+, f 11;
+#X connect 7 0 5 0;
 #X restore 13 40 pd stuff;
 #X text 13 11 GEM PATCH (not the main patch);
