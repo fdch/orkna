@@ -12,6 +12,15 @@ You can download Gem here: gem.iem.at, or get it the *deken* way: open Pd and go
 
 On Linux/Mac: 
 
+if running pd from terminal:
+
+``
+pd main.pd & sleep 1; pd32 -nogui -lib Gem main-video.pd 
+``
+
+where `pd32` is the 32 bit pd (for Gem)
+
+
 open orkna.command
 
 NOTE: you might need to edit the orkna "PATHS" to where your Pd is (open -e orkna.command)

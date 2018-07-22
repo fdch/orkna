@@ -2,7 +2,7 @@
 #
 #	EDIT PATHS here
 #
-PD='/Applications/Pd-0.47-1.app/Contents/Resources/bin'
+PD='/Applications/Pd-0.48-1-i386.app/Contents/Resources/bin'
 echo "
 current path to Pd's *bin* is
 $PD
