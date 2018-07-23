@@ -1,6 +1,8 @@
 # orkna
 * orkna v.1 *
 
+![orkna-1](https://raw.githubusercontent.com/fdch/orkna/master/img/orkna-1.png)
+
 A live visual music program designed in Pd Vanilla using the Gem library. 
 
 -->MUST: This program needs Pd Vanilla and Gem (BOTH 32bit)
@@ -38,6 +40,8 @@ On Windows:
 Check the port number on the [netsend] - [netreceive] pair so that the localhost is the same and working.
 
 Have fun!
+
+![orkna-2](https://raw.githubusercontent.com/fdch/orkna/master/img/orkna-2.png)
 
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
 *~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
