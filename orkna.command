@@ -2,18 +2,18 @@
 #
 #	EDIT PATHS here
 #
-PD='/Applications/Pd-0.48-1-i386.app/Contents/Resources/bin'
-echo "
-current path to Pd's *bin* is
-$PD
-"
+# PD='/Applications/Pd-0.48-1-i386.app/Contents/Resources/bin'
+# echo "
+# current path to Pd's *bin* is
+# $PD
+# "
 #
 #
 # ...SHOULDN'T DO ANYTHING AFTER THIS IF WORKING CORRECTLY...
 #
 #
 ORKNA="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-cd $PD
+# cd $PD
 echo 
 "
 ***************************************************************

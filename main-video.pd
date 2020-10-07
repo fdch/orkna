@@ -1,7 +1,7 @@
-#N canvas 19 475 226 110 10;
+#N canvas 19 155 226 110 10;
 #X declare -path lib;
-#X declare -stdlib Gem;
-#N canvas 529 317 446 375 controls 0;
+#X declare -lib Gem;
+#N canvas 115 175 446 375 controls 0;
 #X msg 15 48 \; alpha 1 0;
 #X msg 16 7 \; alpha 0 1;
 #X msg 14 88 \; cbe draw fill;
@@ -10,10 +10,10 @@
 #X msg 105 88 \; cbe draw point;
 #X msg 200 88 \; cbe draw line;
 #X obj 120 135 hsl 128 15 0 127 0 0 shin shin-set shin -2 -8 0 10 -262144
--1 -1 0 1;
+-1 -1 5000 1;
 #X msg 117 201 \; txt env \$1;
 #X obj 117 180 hradio 15 1 0 6 empty empty empty 0 -6 0 8 -262144 -1
--1 4;
+-1 0;
 #X msg 15 162 \; sph point 1 3;
 #X text 264 5 click these;
 #N canvas 0 22 527 463 camera-view 0;
@@ -93,7 +93,7 @@ cam lookZ 0 \;;
 #X obj 106 128 hsl 128 15 0 127 0 0 speed speed-set speed -2 -8 0 10
 -262144 -1 -1 0 1;
 #X obj 105 162 hsl 128 15 0 127 0 0 distance distance-set distance
--2 -8 0 10 -262144 -1 -1 6000 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X obj 163 145 tgl 15 0 dist-side dist-side-set dist-side 17 7 0 10
 -262144 -1 -1 0 1;
 #X obj 57 306 r distance;
@@ -143,7 +143,7 @@ cam lookZ 0 \;;
 #X coords 0 -1 1 1 300 80 1 100 100;
 #X restore 15 235 pd camera-view;
 #X obj 165 23 vsl 15 50 0 127 0 0 separation separation-set separation
-0 -9 0 10 -262144 -1 -1 1929 1;
+0 -9 0 10 -262144 -1 -1 116 1;
 #X obj 188 26 bng 15 250 50 0 init init-set init 17 7 0 10 -262144
 -1 -1;
 #X msg 224 188 \; sph point 1 5;
@@ -153,18 +153,18 @@ cam lookZ 0 \;;
 -1 -1 0 1;
 #X obj 317 182 / 127;
 #X msg 226 155 \; sph fill \$1 20;
-#X floatatom 319 205 5 0 0 0 - - -, f 5;
+#X floatatom 319 205 5 0 0 0 - - -;
 #X msg 15 127 \; sph fill 0.01 20;
 #X msg 15 197 \; sph line 3 10;
-#X floatatom 327 238 5 0 0 0 - - -, f 5;
+#X floatatom 327 238 5 0 0 0 - - -;
 #X obj 327 257 / 100;
 #X obj 327 279 pack f f f;
 #X msg 327 301 color \$1 \$2 \$3;
 #X obj 327 323 s gemwin;
-#X floatatom 358 197 5 0 0 0 - - -, f 5;
+#X floatatom 358 197 5 0 0 0 - - -;
 #X obj 358 216 / 100;
 #X obj 358 238 t b f;
-#X floatatom 368 130 5 0 0 0 - - -, f 5;
+#X floatatom 368 130 5 0 0 0 - - -;
 #X obj 368 149 / 100;
 #X obj 368 172 t b f;
 #X connect 9 0 8 0;
@@ -254,9 +254,9 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X obj 62 106 array get times;
 #X obj 65 39 inlet;
 #X obj 62 136 s time-sets;
-#X floatatom 54 289 5 0 0 0 - - -, f 5;
+#X floatatom 54 289 5 0 0 0 - - -;
 #X obj 54 308 tabread times;
-#X floatatom 54 330 5 0 0 0 - - -, f 5;
+#X floatatom 54 330 5 0 0 0 - - -;
 #X connect 0 0 5 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -382,7 +382,7 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X restore 151 67 pd score;
 #X obj 73 44 tgl 8 0 fullscreen-set fullscreen fullscreen-set 10 4
 0 8 -262144 -1 -1 0 1;
-#N canvas 19 611 227 168 stuff 0;
+#N canvas 19 290 227 168 stuff 0;
 #N canvas 249 611 143 129 netreceive 0;
 #X msg 14 34 listen 3001;
 #X obj 14 56 netreceive;
@@ -402,9 +402,9 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X obj 204 240 world_light;
 #X msg 25 37 500;
 #X obj 204 217 rotateXYZ;
-#X floatatom 268 187 5 0 0 0 - - -, f 5;
-#X floatatom 304 188 5 0 0 0 - - -, f 5;
-#X floatatom 340 188 5 0 0 0 - - -, f 5;
+#X floatatom 268 187 5 0 0 0 - - -;
+#X floatatom 304 188 5 0 0 0 - - -;
+#X floatatom 340 188 5 0 0 0 - - -;
 #X msg 25 127 0 \, destroy \, FSAA 4 \, lighting 1 \, dimen \$1 \$1
 \, border 0 \, offset 525 0 \, perspec -1 1 -1 1 4 50 \, fullscreen
 \$2 \, create \, 1, f 63;
@@ -451,7 +451,7 @@ point \; sph point 1 3 \; shin-set 50 \; separation-set 3 \; distance-set
 #X connect 20 1 12 1;
 #X restore 15 33 pd gemwin;
 #N canvas 17 739 173 54 cubers 0;
-#X obj 10 10 clone -s 1 trackube 10 8;
+#X obj 10 10 clone -s 1 trackube 10 6;
 #X restore 15 116 pd cubers;
 #N canvas 228 584 198 210 metro 0;
 #X obj 34 104 metro 50;
@@ -508,7 +508,7 @@ trackube \$1 \$2;
 #X obj 132 14 gemhead;
 #N canvas 0 22 205 86 declares 0;
 #X obj 13 6 declare -path lib;
-#X obj 14 30 declare -stdlib Gem;
+#X obj 14 30 declare -lib Gem;
 #X restore 16 10 pd declares;
 #X text 142 37 if this did not create \, then you dont have Gem working...
 , f 11;
